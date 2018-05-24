@@ -7,17 +7,19 @@ import { AppComponent } from './app.component';
 import {AllregionComponent} from './region/allregion/allregion.component';
 import {RegionModule} from './region/region.module';
 import { AppserviceService } from './appservice.service'; 
-import {HttpClientModule} from '@angular/common/http'
+import {HttpClientModule} from '@angular/common/http';
+import { ng2Parallax  } from '../../node_modules/ng-parallax/src/ngParallax';
 @NgModule({
   declarations: [
     AppComponent,
-    
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+
     HttpClientModule,
     RegionModule,
+
     ToastModule.forRoot(),
     RouterModule.forRoot([
       {path: 'region', component:AllregionComponent, pathMatch:'full'},
