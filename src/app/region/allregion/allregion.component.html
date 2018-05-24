@@ -1,0 +1,22 @@
+ 
+  <div class="input-group mb-3">
+   <div class="container" *ngIf="singleRegion == false">
+
+     <h1 class='animated bounceInDown text-center'> All Regions </h1>
+  
+     <br><br><br>
+      <div class="row" >
+        <div class="col-lg-4"  *ngFor="let regionName of regionNames; let i = index">
+ 
+  <div  style="width: 18rem;">
+      <img  [src]="flags[i].src" height="300" width="300">
+      <a class="effect animated bounceInDown" (click)='selectedRegion(flags[i].id)'>Click here to view region</a>
+      <br > <br><br> <br> <br>    <br > <br><br> <br> <br>    <br > <br><br> <br> <br>    
+    </div>
+  </div>
+  </div>
+</div>
+<div *ngIf="singleRegion == true">
+<app-singleregion [imagePar]="image"  [clickdata]="transfer"> </app-singleregion> 
+</div>
+   
