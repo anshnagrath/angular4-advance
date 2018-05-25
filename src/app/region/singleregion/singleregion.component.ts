@@ -21,11 +21,14 @@ export class SingleregionComponent implements OnInit {
   ngOnInit() {
 console.log(this.imagePar)
  this.toShow = JSON.parse(this.clickdata);
- console.log(this.toShow[0],'data here')
+ //console.log(this.toShow[0],'data here')
 
  }
+ onClicked(event){
+   console.log(event,'look')
+}
 
   }
 
 
-}
+

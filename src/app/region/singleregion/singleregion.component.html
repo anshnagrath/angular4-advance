@@ -9,30 +9,31 @@
     <div class="container" style="height:1000px;background-color:white;font-size:12px">
             <p class='animated rubberBand' style="text-align:center;color:black;font-family:Comic Sans MS;font-size:40px">
                      Details</p>
+                     <p style="text-align:center;color:black;font-family:Comic Sans MS;font-size:20px"> PLease Click on a Paticular Country to View Details </p>
                      <!-- Data table used -->
-                     <table class="table table-striped" let i='index' [mfData]="toShow" #mf="mfDataTable"  [mfRowsOnPage]="10">
+                     <table  class='text-center' class="table table-bordered" let i='index' [mfData]="toShow" #mf="mfDataTable"  [mfRowsOnPage]="10">
                             <thead>
                             <tr> 
-                                <th style="width: 20%">
-                                    <mfDefaultSorter by="{{toShow.name}}">CountryName:</mfDefaultSorter>
+                                <th class='text-center' style="width: 20%">
+                                    <mfDefaultSorter class='text-center' by="{{toShow.name}}">CountryName:</mfDefaultSorter>
                                 </th>
-                                <th style="width: 30%">
-                                    <mfDefaultSorter by="{{toShow.population}}">Population</mfDefaultSorter>
+                                <th class='text-center' style="width: 30%">
+                                    <mfDefaultSorter class='text-center' by="{{toShow.population}}">Population</mfDefaultSorter>
                                 </th>
-                                <th style="width:  30%">
-                                    <mfDefaultSorter by="{{toShow.capital}}" >Capital:</mfDefaultSorter>
+                                <th class='text-center' style="width:  30%">
+                                    <mfDefaultSorter  by="{{toShow.capital}}" >Capital:</mfDefaultSorter>
                                 </th>
-                                <th style="width: 30%">
-                                    <mfDefaultSorter >Timezones:</mfDefaultSorter>
+                                <th class='text-center' style="width: 30%">
+                                    <mfDefaultSorter  >Timezones:</mfDefaultSorter>
                               
                             </tr>
                             </thead>
                             <tbody>
-                            <tr *ngFor="let item of mf.data;let i='index'">
-                                <td>{{item.name}}</td>
-                                <td>{{item.population}}</td>
-                                <td>{{item.capital}}</td>
-                                <td>{{item.timezones}}</td>
+                            <tr  *ngFor="let item of mf.data;let i='index'">
+                                <td (click)='onClicked($event.target.value = item.name)' class='text-center'>{{item.name}}</td>
+                                <td class='text-center'>{{item.population}}</td>
+                                <td class='text-center'>{{item.capital}}</td>
+                                <td class='text-center'>{{item.timezones}}</td>
 
                             </tr>
                         </tbody>
