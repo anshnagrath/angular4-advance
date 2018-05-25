@@ -1,7 +1,48 @@
-<div class="container image"[style.backgroundImage]="'url('+ imagePar +')'">
-<div style="height:500px;background-color: transparent;font-size:12px">
-Scroll Up and Down this page to see the parallax scrolling effect.
-This div is just here to enable scrolling.
-Tip: Try to remove the background-attachment property to remove the scrolling effect.
-</div>
-</div>
+<div class="container-fluid"  [style.backgroundImage]="'url('+ imagePar +')'" class="image">
+    <a style="font-size:70px;color:black" href='/ '>&#8592;</a> 
+    <br> <br><br><br><br>  
+   
+    <p class='animated rubberBand' style="text-align:center;color:black;font-family:Comic Sans MS;font-size:70px">
+        {{id}}</p>
+        
+    </div>
+    <div class="container" style="height:1000px;background-color:white;font-size:12px">
+            <p class='animated rubberBand' style="text-align:center;color:black;font-family:Comic Sans MS;font-size:40px">
+                     Details</p>
+                     <!-- Data table used -->
+                     <table class="table table-striped" let i='index' [mfData]="toShow" #mf="mfDataTable"  [mfRowsOnPage]="10">
+                            <thead>
+                            <tr> 
+                                <th style="width: 20%">
+                                    <mfDefaultSorter by="{{toShow.name}}">CountryName:</mfDefaultSorter>
+                                </th>
+                                <th style="width: 30%">
+                                    <mfDefaultSorter by="{{toShow.population}}">Population</mfDefaultSorter>
+                                </th>
+                                <th style="width:  30%">
+                                    <mfDefaultSorter by="{{toShow.capital}}" >Capital:</mfDefaultSorter>
+                                </th>
+                                <th style="width: 30%">
+                                    <mfDefaultSorter >Timezones:</mfDefaultSorter>
+                              
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr *ngFor="let item of mf.data;let i='index'">
+                                <td>{{item.name}}</td>
+                                <td>{{item.population}}</td>
+                                <td>{{item.capital}}</td>
+                                <td>{{item.timezones}}</td>
+
+                            </tr>
+                        </tbody>
+                                <tfoot>
+                                <tr>
+                                    <td colspan="7">
+                                        <mfBootstrapPaginator [rowsOnPageSet]="[5,10,25]"></mfBootstrapPaginator>
+                                    </td>
+                                </tr>
+                                </tfoot>
+                        </table>
+    <div>
+    

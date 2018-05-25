@@ -15,6 +15,7 @@ export class AllregionComponent implements OnInit {
  public transfer;
  public image;
  private data;
+ private id;
  public singleRegion = false; 
   
   constructor(private appService:AppserviceService,private router:Router) { 
@@ -30,13 +31,12 @@ export class AllregionComponent implements OnInit {
   ngOnInit() {
   }
   selectedRegion(event){
-  this.singleRegion=!this.singleRegion;
- // console.log(this.regions[event],'event transfer herer')
-    this.transfer = JSON.stringify(this.regions[event]);
-   this.data = this.flags.find(o => o.id == event);
-   console.log(this.data.src)
-    this.image = this.data.src;
-  //  this.router.navigate(['/singleregion'],{queryParams:this.transfer})
+  this.singleRegion =! this.singleRegion;
+  this.transfer = JSON.stringify(this.regions[event]);
+  this.data = this.flags.find(o => o.id == event);
+  this.image = this.data.src;
+  this.id = this.data.id;
+
 }
 getData(){
   this.appService.getAllRegions().subscribe(res => {

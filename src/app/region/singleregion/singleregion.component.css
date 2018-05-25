@@ -1,4 +1,5 @@
-.image{min-height: 500px; 
+.image{
+min-height: 250px; 
 
 /* Create the parallax scrolling effect */
 background-attachment: fixed;
