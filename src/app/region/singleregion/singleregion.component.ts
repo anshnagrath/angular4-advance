@@ -13,6 +13,7 @@ export class SingleregionComponent implements OnInit {
   @Input() clickdata: any;
   @Input() imagePar: any;
   @Input() id: any;
+  public hide = false;
   public toShow;
 
   constructor() {
@@ -21,12 +22,14 @@ export class SingleregionComponent implements OnInit {
   ngOnInit() {
 console.log(this.imagePar)
  this.toShow = JSON.parse(this.clickdata);
- //console.log(this.toShow[0],'data here')
+ console.log(this.toShow,'datta here')
+
 
  }
- onClicked(event){
-   console.log(event,'look')
-}
+ onClicked(event?){
+   this.hide = !this.hide;
+   document.getElementById('change').innerHTML = 'click here to see flag view';
+  }
 
   }
 

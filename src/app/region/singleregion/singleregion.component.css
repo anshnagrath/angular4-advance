@@ -7,3 +7,28 @@ background-position: center;
 background-repeat: no-repeat;
 background-size: cover;
 opacity:0.5;}
+
+
+img{
+    opacity: 0.5;
+    z-index: -1;
+}
+.effect{
+     margin-top:38%;  
+     margin-left:1%;  
+     position: absolute !important;
+     text-align: center !important;
+     padding:7%;
+     word-wrap: break-word;
+     /* padding-left:5%; */
+     font-family:"Comic Sans MS";
+     font-size: 20px;
+     font-weight: bold;
+     /* border-radius: 20px; */
+     /* transform: translate(-50%, -50%); */
+     /* border: 2px solid black; */
+     /* padding: 5px;  */
+     /* width: 200px;
+     height: 150px;  */
+
+}
