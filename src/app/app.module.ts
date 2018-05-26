@@ -26,7 +26,7 @@ import {HttpClientModule} from '@angular/common/http';
     SinglecountryModule,
     ToastModule.forRoot(),
     RouterModule.forRoot([
-      {path: 'region', component:AllregionComponent, pathMatch:'full'},
+      {path: 'region/:filter', component:AllregionComponent, pathMatch:'full'},
       {path: '', redirectTo:'region', pathMatch:'full' },
       {path: '*', component:AllregionComponent},
       {path: '**', component:AllregionComponent },

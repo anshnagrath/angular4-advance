@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {AppserviceService} from '../../appservice.service'; 
-import {ActivatedRoute,Routes, Router} from '@angular/router';
+import {ActivatedRoute, Routes, Router} from '@angular/router';
+import { filter } from 'rxjs/operators';
 
 @Component({
   selector: 'app-allregion',
@@ -16,10 +17,15 @@ export class AllregionComponent implements OnInit {
  public image;
  private data;
  private id;
- public singleRegion = false; 
-  
-  constructor(private appService:AppserviceService,private router:Router) { 
-    this.getData()
+ public navigation;
+ public singleRegion = false;
+
+  constructor(private appService:AppserviceService,private activatedRoutes: ActivatedRoute,private router:Router) { 
+    this.navigation = this.activatedRoutes.snapshot.params.filter;
+  if (this.navigation) {
+   this.navigatedFromFilter();
+    }
+    this.getData();
     this.flags.push({id:'Asia',src:'http://www.geoatlas.com/medias/maps/flags/Flags%20of%20Asia/fl9577s03s/asia_flags.jpg'});
     this.flags.push({id:'Oceania',src:'https://vignette.wikia.nocookie.net/althistory/images/8/8e/Flag_of_Oceania.jpg/revision/latest?cb=20130819230833' });
     this.flags.push({id:'Africa',src:'https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Flag_of_South_Africa.svg/2000px-Flag_of_South_Africa.svg.png' });
@@ -38,6 +44,11 @@ export class AllregionComponent implements OnInit {
   this.id = this.data.id;
 
 }
+navigatedFromFilter() {
+this.singleRegion = true;
+
+}
+
 getData(){
   this.appService.getAllRegions().subscribe(res => {
     const groupBy = function(xs, key) {

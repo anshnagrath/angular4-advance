@@ -5,7 +5,10 @@ import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/observable/throw';
 @Injectable()
+
 export class AppserviceService {
+  public res1;
+  public res2;
   public baseUrl:string = "https://restcountries.eu/rest/v2/"
   constructor(private http:HttpClient) { 
     this.getAllRegions()
@@ -23,13 +26,18 @@ export class AppserviceService {
 }
 
  getFilteredDataByCurrency(currency) {
+  
    let data = this.http.get(`${this.baseUrl}currency/${currency}` )
     return data;
  }
- getFilteredDataByLanguages(lang) {
-  let data = this.http.get(`${this.baseUrl}all?fields=${lang}` )
-   return data;
-}
+ async getFilteredDataByLanguages(lang1?,lang2?) {
+   console.log(lang1,lang2,'check')
+  const data1 = await this.http.get(`${this.baseUrl}lang/${lang1}` ).toPromise();
+  const data2 = await this.http.get(`${this.baseUrl}lang/${lang2}` ).toPromise();
+  return  { data1 , data2 };
+   //   data1 : this.res2,
+  }
+
 private httpErrorHandler (err:HttpErrorResponse){
   let errorMessage = ''
   if (err.error instanceof Error){
