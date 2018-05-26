@@ -1,0 +1,32 @@
+<div id="image" class="container-fluid" [style.backgroundImage]="'url('+ data.flag +')'">
+    <br>
+    <a style="font-size:70px;color:black" href='/ '>&#8592;</a>
+    <br>
+    <br>
+    <br>
+
+   <div style="text-align:center" class="container">
+    <p class='animated rubberBand' style="text-align:center;color:white;font-family:Comic Sans MS;font-size:70px">
+        {{data.name}}</p>
+  <p class='animated fadeInRight'(click)="filterDataLanguage(data.languages[0].iso639_1,data.languages[0].iso639_2)"  style="text-align:center;color:white;font-family:Comic Sans MS;font-size:40px">
+    Language:{{data.languages[0].name}}
+    </p>
+  <br><br>
+  <p class='animated fadeInRight' (click)="filterDataCurrency(data.currencies[0].code)" style="text-align:center;color:white;font-family:Comic Sans MS;font-size:40px">
+      Currency:{{data.currencies[0].name}}
+    </p>
+    <br><br>
+    <p class="animated fadeInRight"  style="text-align:center;color:white;font-family:Comic Sans MS;font-size:40px">
+        Population:{{data.population}}
+      </p>
+      <br><br>
+      <p class="animated fadeInRight"  style="text-align:center;color:white;font-family:Comic Sans MS;font-size:40px">
+          Timezone:{{data.timezones}}
+        </p>
+        <br><br>
+        <p class="animated fadeInRight"  style="text-align:center;color:white;font-family:Comic Sans MS;font-size:40px">
+            Region:{{data.region}}
+          </p>
+          <br><br>
+          </div>
+</div>
