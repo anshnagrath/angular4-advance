@@ -18,14 +18,20 @@ export class AllregionComponent implements OnInit {
  private data;
  private id;
  public navigation;
+ private currency;
+ private lang;
+
  public singleRegion = false;
 
-  constructor(private appService:AppserviceService,private activatedRoutes: ActivatedRoute,private router:Router) { 
-    this.navigation = this.activatedRoutes.snapshot.params.filter;
+ constructor(private appService:AppserviceService,private activatedRoutes: ActivatedRoute,private router:Router) { 
+   this.navigation = this.activatedRoutes.snapshot.params.filter;
+   this.currency = this.activatedRoutes.snapshot.queryParamMap.get('res');
+   this.lang = this.activatedRoutes.snapshot.queryParamMap.get('data3')
+   this.getData();
   if (this.navigation) {
    this.navigatedFromFilter();
     }
-    this.getData();
+    if(!this.navigation){
     this.flags.push({id:'Asia',src:'http://www.geoatlas.com/medias/maps/flags/Flags%20of%20Asia/fl9577s03s/asia_flags.jpg'});
     this.flags.push({id:'Oceania',src:'https://vignette.wikia.nocookie.net/althistory/images/8/8e/Flag_of_Oceania.jpg/revision/latest?cb=20130819230833' });
     this.flags.push({id:'Africa',src:'https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Flag_of_South_Africa.svg/2000px-Flag_of_South_Africa.svg.png' });
@@ -33,7 +39,7 @@ export class AllregionComponent implements OnInit {
     this.flags.push({id:'Europe',src:'https://upload.wikimedia.org/wikipedia/commons/b/b7/Flag_of_Europe.svg'});
      this.flags.push({id:'Americas',src:'https://i.ytimg.com/vi/pNR7efs5jP8/maxresdefault.jpg'});
     this.flags.push({id:'',src:'http://cdn.obsidianportal.com/assets/127079/Unknown.png'});
-  }
+  } }
   ngOnInit() {
   }
   selectedRegion(event){
@@ -46,7 +52,18 @@ export class AllregionComponent implements OnInit {
 }
 navigatedFromFilter() {
 this.singleRegion = true;
-
+if(this.lang){
+  this.lang = JSON.parse(this.lang)
+  this.image ='https://greenwichmeantime.com/static/app/world_clock/icon/world.svg';
+  this.transfer = JSON.stringify(this.lang);
+   this.id = 'world';
+}
+if(this.currency){
+  this.currency = JSON.parse(this.currency)
+  this.image ='https://greenwichmeantime.com/static/app/world_clock/icon/world.svg';
+  this.transfer = JSON.stringify(this.currency);
+   this.id = 'world';
+}
 }
 
 getData(){
