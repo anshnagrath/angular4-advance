@@ -1,3 +1,4 @@
+import { SinglecountryModule } from './singlecountry/singlecountry.module';
 import { DataTableModule } from 'angular2-datatable';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -22,6 +23,7 @@ import {HttpClientModule} from '@angular/common/http';
     HttpClientModule,
     RegionModule,
     DataTableModule,
+    SinglecountryModule,
     ToastModule.forRoot(),
     RouterModule.forRoot([
       {path: 'region', component:AllregionComponent, pathMatch:'full'},

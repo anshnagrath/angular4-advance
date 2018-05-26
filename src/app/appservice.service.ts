@@ -22,7 +22,14 @@ export class AppserviceService {
     return data;
 }
 
-
+ getFilteredDataByCurrency(currencies) {
+   let data = this.http.get(`${this.baseUrl}all?fields=${currencies}` )
+    return data;
+ }
+ getFilteredDataByLanguages(lang) {
+  let data = this.http.get(`${this.baseUrl}all?fields=${lang}` )
+   return data;
+}
 private httpErrorHandler (err:HttpErrorResponse){
   let errorMessage = ''
   if (err.error instanceof Error){

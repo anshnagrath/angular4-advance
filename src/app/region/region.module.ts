@@ -5,6 +5,8 @@ import { AllregionComponent } from './allregion/allregion.component';
 import {AppserviceService} from '../appservice.service';
 import {DataTableModule} from 'angular2-datatable';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { RouterModule } from '@angular/router';
+import { SinglecountryComponent } from '../singlecountry/singlecountry/singlecountry.component';
 
 @NgModule({
   imports: [
@@ -13,9 +15,9 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     DataTableModule,
 
 
-    // RouterModule.forChild([
-    // {path: 'singleregion' , component: SingleregionComponent, pathMatch: 'full'}
-    // ])
+    RouterModule.forChild([
+    {path: 'singlecountry' , component: SinglecountryComponent, pathMatch: 'full'}
+    ])
   ],
   declarations: [SingleregionComponent, AllregionComponent],
   providers: [AppserviceService]

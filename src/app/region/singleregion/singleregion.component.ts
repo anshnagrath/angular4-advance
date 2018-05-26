@@ -15,8 +15,9 @@ export class SingleregionComponent implements OnInit {
   @Input() id: any;
   public hide = false;
   public toShow;
+  public contryData;
 
-  constructor() {
+  constructor(private router: Router) {
   this.imagePar = '';
   }
   ngOnInit() {
@@ -26,10 +27,19 @@ console.log(this.imagePar)
 
 
  }
- onClicked(event?){
-   this.hide = !this.hide;
-   document.getElementById('change').innerHTML = 'click here to see flag view';
-  }
+ onClicked(event?) {
+   let transferData;
+   console.log(event, 'event here');
+   if ( event === undefined ) {
+   this.hide = !this.hide; 
+   document.getElementById('change').innerHTML = 'click here to see flag view'; }
+   if(event){
+  this.contryData = this.toShow.find( o => o.name == event)
+  transferData = JSON.stringify(this.contryData);
+
+  this.router.navigate(['/singlecountry'], {queryParams: {transferData}})
+} 
+}
 
   }
 
