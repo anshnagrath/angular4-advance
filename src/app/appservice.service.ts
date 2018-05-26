@@ -22,8 +22,8 @@ export class AppserviceService {
     return data;
 }
 
- getFilteredDataByCurrency(currencies) {
-   let data = this.http.get(`${this.baseUrl}all?fields=${currencies}` )
+ getFilteredDataByCurrency(currency) {
+   let data = this.http.get(`${this.baseUrl}currency/${currency}` )
     return data;
  }
  getFilteredDataByLanguages(lang) {
